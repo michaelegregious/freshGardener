@@ -21,6 +21,24 @@ form div {
 }
 
 /* classes */
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info h1 {
+  margin: 2px;
+}
+
+.info h5 {
+  margin: 5px;
+  padding: 0px;
+}
+
+.info button {
+  margin: 5px;
+}
+
 .navbar {
   /* overflow: hidden; */
   background-color: white;

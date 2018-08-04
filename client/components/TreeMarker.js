@@ -27,11 +27,12 @@ class TreeMarker extends React.Component {
       >
         {this.state.open && (
           <InfoWindow onCloseClick={this.closeInfo}>
-            <div>
+            <div className="info">
               <h1>{name}</h1>
-              <h5>aka {aliases.join(', ')}</h5>
-              <h5>Fruits from {fruitsIn}</h5>
+              {aliases[0] && <h5>aka {aliases.join(', ')}</h5>}
+              {fruitsIn[0] && <h5>Fruits from {fruitsIn}</h5>}
               <img src={imgUrl} />
+              <button type="button">{name ? 'Edit' : 'Add Fruit Tree'}</button>
             </div>
           </InfoWindow>
         )}

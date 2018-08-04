@@ -1,4 +1,4 @@
-const dummyTrees = [
+export const dummyTrees = [
   {
     id: 1,
     name: 'Service Berry',
@@ -41,4 +41,12 @@ const dummyTrees = [
   }
 ]
 
-export default dummyTrees
+export const newMarker = {
+  id: 0,
+  latLng: {lat: 0, lng: 0},
+  name: '',
+  aliases: [],
+  fruitsIn: '',
+  imgUrl: '',
+  zone: 0
+}

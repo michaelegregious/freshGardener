@@ -1,21 +1,10 @@
 import React from 'react'
 import MyMapComponent from './MyMapComponent'
-import dummyTrees from './dummyTrees'
-
-const newMarker = {
-  id: 0,
-  latLng: {lat: 0, lng: 0},
-  name: '',
-  aliases: [],
-  fruitsIn: '',
-  imgUrl: '',
-  zone: 0
-}
+import {dummyTrees, newMarker} from './dummyTrees'
 
 class Map extends React.Component {
   state = {
-    markers: dummyTrees || [],
-    markerSelected: false
+    markers: dummyTrees || []
   }
 
   handleMapClick = evt => {
