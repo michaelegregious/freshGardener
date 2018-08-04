@@ -1,10 +1,17 @@
 import React from 'react'
 import MyMapComponent from './MyMapComponent'
 import {dummyTrees, newMarker} from './dummyTrees'
+import {idText} from 'typescript'
 
 class Map extends React.Component {
   state = {
     markers: dummyTrees || []
+  }
+
+  removeMarker = id => {
+    this.setState({
+      markers: this.state.markers.filter(m => m.id != id)
+    })
   }
 
   handleMapClick = evt => {
@@ -23,6 +30,7 @@ class Map extends React.Component {
     return (
       <div>
         <MyMapComponent
+          removeMarker={this.removeMarker}
           markers={this.state.markers}
           onMapClick={this.handleMapClick}
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMVqyJoq46F5GGI08crYFcXG9bqoxCeH0"

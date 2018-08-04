@@ -14,6 +14,7 @@ const MyMapComponent = withScriptjs(
           key={marker.id}
           marker={marker}
           onMarkerClick={props.onMarkerClick}
+          removeMarker={props.removeMarker}
         />
       ))}
     </GoogleMap>

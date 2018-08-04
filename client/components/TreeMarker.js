@@ -15,8 +15,8 @@ class TreeMarker extends React.Component {
   }
 
   render() {
-    const {marker} = this.props
-    const {name, aliases, latLng, fruitsIn, imgUrl} = marker
+    const {marker, removeMarker} = this.props
+    const {id, name, aliases, latLng, fruitsIn, imgUrl} = marker
 
     return (
       <Marker
@@ -33,6 +33,9 @@ class TreeMarker extends React.Component {
               {fruitsIn[0] && <h5>Fruits from {fruitsIn}</h5>}
               <img src={imgUrl} />
               <button type="button">{name ? 'Edit' : 'Add Fruit Tree'}</button>
+              <button onClick={() => removeMarker(id)} type="button">
+                Remove
+              </button>
             </div>
           </InfoWindow>
         )}
