@@ -4,6 +4,7 @@ import {dummyTrees, newMarker} from '../components/dummyTrees'
 const GET_MARKERS = 'GET_MARKERS'
 const REMOVE_MARKER = 'REMOVE_MARKER'
 const ADD_MARKER = 'ADD_MARKER'
+const EDIT_MARKER = 'EDIT_MARKER'
 
 //INITIAL STATE
 const defaultMarkers = dummyTrees || []
@@ -19,6 +20,13 @@ export const addMarker = latLng => {
   return {
     type: ADD_MARKER,
     marker: {...defaultMarker, latLng}
+  }
+}
+
+export const editMarker = marker => {
+  return {
+    type: EDIT_MARKER,
+    marker
   }
 }
 
@@ -42,6 +50,8 @@ export default function(state = defaultMarkers, action) {
           ...action.marker
         }
       }
+    case EDIT_MARKER:
+      return {...state, [action.marker.id]: action.marker}
     case REMOVE_MARKER:
       return Object.values(state).reduce((result, m) => {
         if (m.id != action.id) result[m.id] = m

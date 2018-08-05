@@ -1,12 +1,16 @@
 import React from 'react'
 import {Marker, InfoWindow} from 'react-google-maps'
 import {connect} from 'react-redux'
-import {removeMarker} from '../store'
+import {removeMarker, editMarker} from '../store'
 import TreeForm from './TreeForm'
 
 class TreeMarker extends React.Component {
   state = {
     open: false
+  }
+
+  submit = marker => {
+    this.props.editMarker(marker)
   }
 
   handleMarkerClick = () => {
@@ -32,7 +36,7 @@ class TreeMarker extends React.Component {
           // <TreeForm closeInfo={this.closeInfo} />
           <InfoWindow onCloseClick={this.closeInfo}>
             {!name ? (
-              <TreeForm markerId={id} />
+              <TreeForm markerId={id} onSubmit={this.submit} />
             ) : (
               <div className="info">
                 <h1>{name}</h1>
@@ -61,7 +65,8 @@ const mapState = state => ({})
 
 const mapDispatch = dispatch => {
   return {
-    removeMarker: id => dispatch(removeMarker(id))
+    removeMarker: id => dispatch(removeMarker(id)),
+    editMarker: marker => dispatch(editMarker(marker))
   }
 }
 

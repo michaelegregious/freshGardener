@@ -4,8 +4,9 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import markers from './markers'
 import user from './user'
+import {reducer as formReducer} from 'redux-form'
 
-const reducer = combineReducers({user, markers})
+const reducer = combineReducers({user, markers, form: formReducer})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )

@@ -3,39 +3,38 @@ import {Field, reduxForm} from 'redux-form'
 import {connect} from 'react-redux'
 import {removeMarker} from '../store'
 
-class TreeForm extends React.Component {
-  state = {}
+let TreeForm = props => {
+  const {handleSubmit, pristine, submitting, markerId} = props
 
-  render() {
-    const id = this.props.markerId
-    return (
-      <div className="info">
-        <h1>Add a Fruit Tree!</h1>
-        <form>
-          <label>
-            Name:
-            <input type="text" name="name" />
-          </label>
-          <label>
-            Fruiting Months:
-            <input type="text" name="fruitsIn" />
-          </label>
-          <label>
-            Picture:
-            <input type="text" name="imgUrl" />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
-        <button onClick={() => this.props.removeMarker(id)} type="button">
-          Remove
+  return (
+    <div className="info container">
+      <h1>Add a Fruit Tree!</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="input-field">
+          <Field name="name" component="input" type="text" />
+          <label htmlFor="title">Name</label>
+        </div>
+        <div className="input-field">
+          <Field name="fruitsIn" component="input" type="text" />
+          <label htmlFor="title">Fruiting Period</label>
+        </div>
+        <div className="input-field">
+          <Field name="imgUrl" component="input" type="text" />
+          <label htmlFor="title">Picture</label>
+        </div>
+        <button disabled={pristine || submitting} type="submit">
+          Submit
         </button>
-      </div>
-    )
-  }
+      </form>
+      <button onClick={() => props.removeMarker(markerId)} type="button">
+        Remove
+      </button>
+    </div>
+  )
 }
 
 const mapState = (state, ownProps) => ({
-  initialValues: state
+  initialValues: state.markers[ownProps.markerId]
 })
 
 const mapDispatch = dispatch => {
@@ -44,4 +43,7 @@ const mapDispatch = dispatch => {
   }
 }
 
-export default connect(mapState, mapDispatch)(TreeForm)
+TreeForm = reduxForm({form: 'treeForm'})(TreeForm)
+TreeForm = connect(mapState, mapDispatch)(TreeForm)
+
+export default TreeForm
