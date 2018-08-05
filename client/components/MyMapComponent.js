@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import {withGoogleMap, GoogleMap, withScriptjs} from 'react-google-maps'
 
 import TreeMarker from './TreeMarker'
@@ -10,16 +11,26 @@ const MyMapComponent = withScriptjs(
       defaultZoom={18}
       onClick={props.onMapClick}
     >
+      {console.log('props.markers!', props.markers)}
       {props.markers.map(marker => (
         <TreeMarker
           key={marker.id}
           marker={marker}
           onMarkerClick={props.onMarkerClick}
-          removeMarker={props.removeMarker}
+          // removeMarker={props.removeMarker}
         />
       ))}
     </GoogleMap>
   ))
 )
 
-export default MyMapComponent
+const mapState = state => {
+  console.log('Markers', state.markers)
+  return {
+    markers: state.markers
+  }
+}
+
+const mapDispatch = dispatch => ({})
+
+export default connect(mapState, mapDispatch)(MyMapComponent)

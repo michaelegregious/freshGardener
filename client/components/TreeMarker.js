@@ -1,5 +1,7 @@
 import React from 'react'
 import {Marker, InfoWindow} from 'react-google-maps'
+import {connect} from 'react-redux'
+import {removeMarker} from '../store'
 import TreeForm from './TreeForm'
 
 class TreeMarker extends React.Component {
@@ -21,7 +23,6 @@ class TreeMarker extends React.Component {
   render() {
     const {marker, removeMarker} = this.props
     const {id, name, aliases, latLng, fruitsIn, imgUrl} = marker
-
     return (
       <Marker
         title={name}
@@ -30,23 +31,31 @@ class TreeMarker extends React.Component {
         onClick={this.handleMarkerClick}
       >
         {this.state.open && (
-          <TreeForm closeInfo={this.closeInfo} />
-          // <InfoWindow onCloseClick={this.closeInfo}>
-          //   <div className="info">
-          //     <h1>{name}</h1>
-          //     {aliases[0] && <h5>aka {aliases.join(', ')}</h5>}
-          //     {fruitsIn[0] && <h5>Fruits from {fruitsIn}</h5>}
-          //     <img src={imgUrl} />
-          //     <button type="button">{name ? 'Edit' : 'Add Fruit Tree'}</button>
-          //     <button onClick={() => removeMarker(id)} type="button">
-          //       Remove
-          //     </button>
-          //   </div>
-          // </InfoWindow>
+          // <TreeForm closeInfo={this.closeInfo} />
+          <InfoWindow onCloseClick={this.closeInfo}>
+            <div className="info">
+              <h1>{name}</h1>
+              {aliases[0] && <h5>aka {aliases.join(', ')}</h5>}
+              {fruitsIn[0] && <h5>Fruits from {fruitsIn}</h5>}
+              <img src={imgUrl} />
+              <button type="button">{name ? 'Edit' : 'Add Fruit Tree'}</button>
+              <button onClick={() => removeMarker(id)} type="button">
+                Remove
+              </button>
+            </div>
+          </InfoWindow>
         )}
       </Marker>
     )
   }
 }
 
-export default TreeMarker
+const mapState = state => ({})
+
+const mapDispatch = dispatch => {
+  return {
+    removeMarker: id => dispatch(removeMarker(id))
+  }
+}
+
+export default connect(mapState, mapDispatch)(TreeMarker)

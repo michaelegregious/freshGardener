@@ -42,7 +42,6 @@ export const dummyTrees = [
 ]
 
 export const newMarker = {
-  id: 0,
   latLng: {lat: 0, lng: 0},
   name: '',
   aliases: [],
