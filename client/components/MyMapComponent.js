@@ -1,5 +1,6 @@
 import React from 'react'
 import {withGoogleMap, GoogleMap, withScriptjs} from 'react-google-maps'
+
 import TreeMarker from './TreeMarker'
 
 const MyMapComponent = withScriptjs(

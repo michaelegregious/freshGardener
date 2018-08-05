@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {Login, Signup, UserHome, Map} from './components'
-import {me} from './store'
+import {me, getMarkers} from './store'
 
 /**
  * COMPONENT
@@ -14,8 +14,6 @@ class Routes extends Component {
   }
 
   render() {
-    
-
     return (
       <Switch>
         <Map />
@@ -38,7 +36,8 @@ const mapState = state => {
 const mapDispatch = dispatch => {
   return {
     loadInitialData() {
-      dispatch(me())
+      // dispatch(me())
+      dispatch(getMarkers())
     }
   }
 }

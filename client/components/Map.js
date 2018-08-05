@@ -1,13 +1,9 @@
 import React from 'react'
 import MyMapComponent from './MyMapComponent'
-import {dummyTrees, newMarker} from './dummyTrees'
-import {idText} from 'typescript'
+import {connect} from 'react-redux'
+import {addMarker, removeMarker} from '../store'
 
 class Map extends React.Component {
-  state = {
-    markers: dummyTrees || []
-  }
-
   removeMarker = id => {
     this.setState({
       markers: this.state.markers.filter(m => m.id != id)
@@ -31,7 +27,7 @@ class Map extends React.Component {
       <div>
         <MyMapComponent
           removeMarker={this.removeMarker}
-          markers={this.state.markers}
+          markers={this.props.markers}
           onMapClick={this.handleMapClick}
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMVqyJoq46F5GGI08crYFcXG9bqoxCeH0"
           loadingElement={<div style={{height: `100%`}} />}
@@ -43,4 +39,19 @@ class Map extends React.Component {
     )
   }
 }
-export default Map
+
+const mapState = state => {
+  console.log('STATE', state)
+  return {
+    markers: state.markers
+  }
+}
+
+const mapDispatch = dispatch => {
+  return {
+    addMarker: () => dispatch(addMarker()),
+    removeMarker: () => dispatch(removeMarker())
+  }
+}
+
+export default connect(mapState)(Map)
