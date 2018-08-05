@@ -11,22 +11,40 @@ let TreeForm = props => {
       <h1>Add a Fruit Tree!</h1>
       <form onSubmit={handleSubmit}>
         <div className="input-field">
-          <Field name="name" component="input" type="text" />
+          <Field className="field" name="name" component="input" type="text" />
           <label htmlFor="title">Name</label>
         </div>
         <div className="input-field">
-          <Field name="fruitsIn" component="input" type="text" />
+          <Field
+            className="field"
+            name="fruitsIn"
+            component="input"
+            type="text"
+          />
           <label htmlFor="title">Fruiting Period</label>
         </div>
         <div className="input-field">
-          <Field name="imgUrl" component="input" type="text" />
+          <Field
+            className="field"
+            name="imgUrl"
+            component="input"
+            type="text"
+          />
           <label htmlFor="title">Picture</label>
         </div>
-        <button disabled={pristine || submitting} type="submit">
+        <button
+          className="field"
+          disabled={pristine || submitting}
+          type="submit"
+        >
           Submit
         </button>
       </form>
-      <button onClick={() => props.removeMarker(markerId)} type="button">
+      <button
+        className="field"
+        onClick={() => props.removeMarker(markerId)}
+        type="button"
+      >
         Remove
       </button>
     </div>

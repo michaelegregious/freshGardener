@@ -21,6 +21,14 @@ form div {
 }
 
 /* classes */
+.container {
+  width: 375px;
+}
+
+.field {
+  width: 90%;
+}
+
 .info {
   display: flex;
   flex-direction: column;
@@ -37,6 +45,10 @@ form div {
 
 .info button {
   margin: 5px;
+}
+
+.input-field {
+  width: 100%;
 }
 
 .tree {
