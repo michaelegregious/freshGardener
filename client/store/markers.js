@@ -16,7 +16,6 @@ export const getMarkers = () => ({
 })
 
 export const addMarker = latLng => {
-  console.log('latLng', latLng)
   return {
     type: ADD_MARKER,
     marker: {...defaultMarker, latLng}
@@ -24,7 +23,6 @@ export const addMarker = latLng => {
 }
 
 export const removeMarker = id => {
-  console.log('inside remove marker', id)
   return {
     type: REMOVE_MARKER,
     id
@@ -37,7 +35,10 @@ export default function(state = defaultMarkers, action) {
     case GET_MARKERS:
       return action.markers
     case ADD_MARKER:
-      return [...state, {id: state.length + 1, ...action.marker}]
+      return [
+        ...state,
+        {id: Math.max(...state.map(m => m.id)) + 1, ...action.marker}
+      ]
     case REMOVE_MARKER:
       return state.filter(m => m.id != action.id)
     default:

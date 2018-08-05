@@ -6,8 +6,7 @@ import TreeForm from './TreeForm'
 
 class TreeMarker extends React.Component {
   state = {
-    open: false,
-    form: false
+    open: false
   }
 
   handleMarkerClick = () => {
@@ -21,8 +20,7 @@ class TreeMarker extends React.Component {
   }
 
   render() {
-    const {marker, removeMarker} = this.props
-    const {id, name, aliases, latLng, fruitsIn, imgUrl} = marker
+    const {id, name, aliases, latLng, fruitsIn, imgUrl} = this.props.marker
     return (
       <Marker
         title={name}
@@ -33,16 +31,25 @@ class TreeMarker extends React.Component {
         {this.state.open && (
           // <TreeForm closeInfo={this.closeInfo} />
           <InfoWindow onCloseClick={this.closeInfo}>
-            <div className="info">
-              <h1>{name}</h1>
-              {aliases[0] && <h5>aka {aliases.join(', ')}</h5>}
-              {fruitsIn[0] && <h5>Fruits from {fruitsIn}</h5>}
-              <img src={imgUrl} />
-              <button type="button">{name ? 'Edit' : 'Add Fruit Tree'}</button>
-              <button onClick={() => removeMarker(id)} type="button">
-                Remove
-              </button>
-            </div>
+            {!name ? (
+              <TreeForm markerId={id} />
+            ) : (
+              <div className="info">
+                <h1>{name}</h1>
+                {aliases[0] && <h5>aka {aliases.join(', ')}</h5>}
+                {fruitsIn[0] && <h5>Fruits from {fruitsIn}</h5>}
+                <img className="tree" src={imgUrl} />
+                <button type="button">
+                  {name ? 'Edit' : 'Add Fruit Tree'}
+                </button>
+                <button
+                  onClick={() => this.props.removeMarker(id)}
+                  type="button"
+                >
+                  Remove
+                </button>
+              </div>
+            )}
           </InfoWindow>
         )}
       </Marker>

@@ -39,6 +39,10 @@ form div {
   margin: 5px;
 }
 
+.tree {
+  width: 355px;
+}
+
 .navbar {
   /* overflow: hidden; */
   background-color: white;
