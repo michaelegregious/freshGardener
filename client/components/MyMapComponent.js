@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {withGoogleMap, GoogleMap, withScriptjs} from 'react-google-maps'
+import {getAllMarkers} from '../store'
 import TreeMarker from './TreeMarker'
 
 const MyMapComponent = withScriptjs(
@@ -19,7 +20,7 @@ const MyMapComponent = withScriptjs(
 
 const mapState = state => {
   return {
-    markers: state.markers
+    markers: getAllMarkers(state)
   }
 }
 

@@ -1,19 +1,10 @@
 import React from 'react'
+import {Field, reduxForm} from 'redux-form'
 import {connect} from 'react-redux'
-import {InfoWindow} from 'react-google-maps'
 import {removeMarker} from '../store'
 
 class TreeForm extends React.Component {
   state = {}
-
-  handleChange(evt) {
-    this.setState({value: evt.target.value})
-  }
-
-  handleSubmit(evt) {
-    evt.preventDefault()
-    console.log('Submitted!', evt)
-  }
 
   render() {
     const id = this.props.markerId
@@ -43,7 +34,9 @@ class TreeForm extends React.Component {
   }
 }
 
-const mapState = state => ({})
+const mapState = (state, ownProps) => ({
+  initialValues: state
+})
 
 const mapDispatch = dispatch => {
   return {

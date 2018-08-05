@@ -35,13 +35,23 @@ export default function(state = defaultMarkers, action) {
     case GET_MARKERS:
       return action.markers
     case ADD_MARKER:
-      return [
+      return {
         ...state,
-        {id: Math.max(...state.map(m => m.id)) + 1, ...action.marker}
-      ]
+        [Math.max(...Object.values(state).map(m => m.id)) + 1]: {
+          id: Math.max(...Object.values(state).map(m => m.id)) + 1,
+          ...action.marker
+        }
+      }
     case REMOVE_MARKER:
-      return state.filter(m => m.id != action.id)
+      return Object.values(state).reduce((result, m) => {
+        if (m.id != action.id) result[m.id] = m
+        return result
+      }, {})
     default:
       return state
   }
+}
+
+export const getAllMarkers = state => {
+  return Object.values(state.markers)
 }

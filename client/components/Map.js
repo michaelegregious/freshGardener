@@ -1,7 +1,7 @@
 import React from 'react'
 import MyMapComponent from './MyMapComponent'
 import {connect} from 'react-redux'
-import {addMarker, removeMarker} from '../store'
+import {addMarker, getAllMarkers} from '../store'
 
 class Map extends React.Component {
   handleMapClick = evt => {
@@ -28,7 +28,7 @@ class Map extends React.Component {
 
 const mapState = state => {
   return {
-    markers: state.markers
+    markers: getAllMarkers(state)
   }
 }
 
