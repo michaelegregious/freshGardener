@@ -6,17 +6,17 @@ import TreeForm from './TreeForm'
 
 class TreeMarker extends React.Component {
   state = {
-    open: false,
-    displayForm: false
+    open: false
+    // displayForm: false
   }
 
-  toggleForm = () => {
-    this.setState({treeForm: !this.state.TreeForm})
-  }
+  // toggleForm = () => {
+  //   this.setState({treeForm: !this.state.TreeForm})
+  // }
 
   submit = marker => {
     this.props.editMarker(marker)
-    this.setState({displayForm: false})
+    // this.setState({displayForm: false})
   }
 
   handleMarkerClick = () => {

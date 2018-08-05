@@ -18,12 +18,8 @@ const MyMapComponent = withScriptjs(
   ))
 )
 
-const mapState = state => {
-  return {
-    markers: getAllMarkers(state)
-  }
-}
+const mapState = state => ({
+  markers: getAllMarkers(state)
+})
 
-const mapDispatch = dispatch => ({})
-
-export default connect(mapState, mapDispatch)(MyMapComponent)
+export default connect(mapState)(MyMapComponent)
