@@ -6,11 +6,17 @@ import TreeForm from './TreeForm'
 
 class TreeMarker extends React.Component {
   state = {
-    open: false
+    open: false,
+    displayForm: false
+  }
+
+  toggleForm = () => {
+    this.setState({treeForm: !this.state.TreeForm})
   }
 
   submit = marker => {
     this.props.editMarker(marker)
+    this.setState({displayForm: false})
   }
 
   handleMarkerClick = () => {
@@ -43,7 +49,7 @@ class TreeMarker extends React.Component {
                 {aliases[0] && <h5>aka {aliases.join(', ')}</h5>}
                 {fruitsIn[0] && <h5>Fruits from {fruitsIn}</h5>}
                 <img className="tree" src={imgUrl} />
-                <button type="button">
+                <button type="button" onClick={() => this.toggleForm()}>
                   {name ? 'Edit' : 'Add Fruit Tree'}
                 </button>
                 <button

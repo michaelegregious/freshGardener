@@ -37,7 +37,7 @@ let TreeForm = props => {
           disabled={pristine || submitting}
           type="submit"
         >
-          Submit
+          Add a Tree
         </button>
       </form>
       <button
