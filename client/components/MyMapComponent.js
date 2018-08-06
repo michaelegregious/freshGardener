@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {withGoogleMap, GoogleMap, withScriptjs} from 'react-google-maps'
 import {getAllMarkers} from '../store'
-import TreeMarker from './TreeMarker'
+import {TreeMarker} from '../components'
 
 const MyMapComponent = withScriptjs(
   withGoogleMap(props => (

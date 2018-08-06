@@ -2,7 +2,7 @@ import React from 'react'
 import {Marker, InfoWindow} from 'react-google-maps'
 import {connect} from 'react-redux'
 import {removeMarker, editMarker} from '../store'
-import TreeForm from './TreeForm'
+import {TreeForm} from '../components'
 
 class TreeMarker extends React.Component {
   state = {
@@ -66,13 +66,9 @@ class TreeMarker extends React.Component {
   }
 }
 
-const mapState = state => ({})
+const mapDispatch = dispatch => ({
+  removeMarker: id => dispatch(removeMarker(id)),
+  editMarker: marker => dispatch(editMarker(marker))
+})
 
-const mapDispatch = dispatch => {
-  return {
-    removeMarker: id => dispatch(removeMarker(id)),
-    editMarker: marker => dispatch(editMarker(marker))
-  }
-}
-
-export default connect(mapState, mapDispatch)(TreeMarker)
+export default connect(null, mapDispatch)(TreeMarker)
