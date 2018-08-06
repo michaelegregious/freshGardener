@@ -26,16 +26,12 @@ class Map extends React.Component {
   }
 }
 
-const mapState = state => {
-  return {
-    markers: getAllMarkers(state)
-  }
-}
+const mapState = state => ({
+  markers: getAllMarkers(state)
+})
 
-const mapDispatch = dispatch => {
-  return {
-    addMarker: latLng => dispatch(addMarker(latLng))
-  }
-}
+const mapDispatch = dispatch => ({
+  addMarker: latLng => dispatch(addMarker(latLng))
+})
 
 export default connect(mapState, mapDispatch)(Map)

@@ -62,6 +62,7 @@ export default function(state = defaultMarkers, action) {
   }
 }
 
+//SELECTORS
 export const getAllMarkers = state => {
   return Object.values(state.markers)
 }

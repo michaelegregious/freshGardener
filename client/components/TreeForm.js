@@ -8,7 +8,7 @@ let TreeForm = props => {
 
   return (
     <div className="info container">
-      <h1>Add a Fruit Tree!</h1>
+      <h1>Add a Fruit Tree</h1>
       <form onSubmit={handleSubmit}>
         <div className="input-field">
           <Field className="field" name="name" component="input" type="text" />
@@ -37,7 +37,7 @@ let TreeForm = props => {
           disabled={pristine || submitting}
           type="submit"
         >
-          Add a Tree
+          Submit
         </button>
       </form>
       <button

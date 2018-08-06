@@ -6,26 +6,26 @@ import TreeForm from './TreeForm'
 
 class TreeMarker extends React.Component {
   state = {
-    open: false
-    // displayForm: false
+    openInfo: false,
+    displayForm: false
   }
 
-  // toggleForm = () => {
-  //   this.setState({treeForm: !this.state.TreeForm})
-  // }
+  toggleForm = () => {
+    this.setState({displayForm: !this.state.displayForm})
+  }
 
   submit = marker => {
     this.props.editMarker(marker)
-    // this.setState({displayForm: false})
+    this.setState({displayForm: false})
   }
 
   handleMarkerClick = () => {
-    this.setState({open: !this.state.open})
+    this.setState({openInfo: !this.state.openInfo})
   }
 
   closeInfo = () => {
     this.setState({
-      open: !this.state.open
+      openInfo: !this.state.openInfo
     })
   }
 
@@ -38,10 +38,9 @@ class TreeMarker extends React.Component {
         icon="/apple.png"
         onClick={this.handleMarkerClick}
       >
-        {this.state.open && (
-          // <TreeForm closeInfo={this.closeInfo} />
+        {this.state.openInfo && (
           <InfoWindow onCloseClick={this.closeInfo}>
-            {!name ? (
+            {this.state.displayForm || !name ? (
               <TreeForm markerId={id} onSubmit={this.submit} />
             ) : (
               <div className="info">
