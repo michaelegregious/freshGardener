@@ -1,7 +1,7 @@
 {
-  "name": "freshgardener",
+  "name": "gardenplanner",
   "version": "1.0.0",
-  "description": "urban foraging app",
+  "description": "garden planning app",
   "engines": {
     "node": ">= 7.0.0"
   },
@@ -33,7 +33,7 @@
       "git add"
     ]
   },
-  "author": "Fullstack Academy of Code",
+  "author": "Michael Bush",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.15.3",
