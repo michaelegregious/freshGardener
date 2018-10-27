@@ -23,7 +23,7 @@ To run this app on your local machine, please follow the steps below:
 8.  npm start
 9.  Open a browswer and navigate to http://localhost:8080/
 
-##Start
+## Start
 
 Early in the project, I provisioned a database and test database in case I wanted to add users and administors. Before 'npm run start-dev' will spin up, please run 'createdb gardenplanner' and 'createdb gardenplanner-test'. I used a PostgreSQL database. There is no need to run the seed as I did not use this feature.
 
