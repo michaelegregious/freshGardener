@@ -2,9 +2,15 @@
 
 _A Hackathon App Built in 3 Days, to Explore the Google Maps API_
 
-Are you into foraging for fruit in your neighborhood? Wanna share the locatio of your favorite fruit tress and shrubs? Urban Forager is for you!
+One of my favorite things to do with my family in the summertime is to go foraging around our neighborhood for fruit. Are you into foraging for fruit in your neighborhood? Wanna share the location of your favorite fruit tress? Urban Forager is for you!
 
-This version of Urban Forager is an MVP to show proof of concept for adding markers with images to Google Maps. It was built using React, Redux and is scaffolded with a PostgreSQL database, but as of right now, the DB isn't connected.
+Most of the fruit trees near us are Serviceberries or Mulberries, but I've taken the liberty of seeding the parkway here with a few other natives that you'll encounter in Chicago.
+
+You can add, edit, remove (if the city comes sadly to take one away).
+
+Happy foraging.
+
+This version of Urban Forager is an MVP to show proof of concept for adding markers with images and related info to Google Maps. It was built using React, Redux and is scaffolded with a PostgreSQL database, but as of right now, the DB isn't connected.
 
 Images are presently added with an image url.
 
