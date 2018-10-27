@@ -30,6 +30,6 @@ To run this app on your local machine, please follow the steps below:
 
 ## Start
 
-Early in the project, I provisioned a database and test database in case I wanted to add users and administors. Before 'npm run start-dev' will spin up, please run 'createdb gardenplanner' and 'createdb gardenplanner-test'. I used a PostgreSQL database. There is no need to run the seed as I did not use this feature.
+Early in the project, I provisioned a database and test database in case I wanted to add users and administors. Before 'npm run start-dev' will spin up, please run 'createdb urban-forager' and 'createdb urban-forager-test'. I used a PostgreSQL database. There is no need to run the seed as I did not use this feature.
 
 Once you have opened the project in your editor of choice, are inside the directory, and have provisioned for the databases, the terminal command npm run start-dev will open the project in the development environment. It will be available in the browser for viewing at localhost:8080
