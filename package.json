@@ -1,7 +1,7 @@
 {
-  "name": "gardenplanner",
+  "name": "urbanforager",
   "version": "1.0.0",
-  "description": "garden planning app",
+  "description": "urban foraging app",
   "engines": {
     "node": ">= 7.0.0"
   },
