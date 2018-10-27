@@ -20,9 +20,9 @@ To run this app on your local machine, please follow the steps below:
 
 1.  Open your terminal
 2.  cd Desktop (if you want to self-title your own folder complete step 3-6, otherwise skip to step 5)
-3.  mkdir freshGardener
-4.  cd freshGardener
-5.  git clone https://github.com/michaelegregious/freshGardener.git
+3.  mkdir urban-forager
+4.  cd urban-forager
+5.  git clone https://github.com/michaelegregious/urban-forager.git
 6.  Open in your text editor of choice
 7.  npm install
 8.  npm start
