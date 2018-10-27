@@ -13,8 +13,7 @@ Images are presently added with an image url.
 To run this app on your local machine, please follow the steps below:
 
 1.  Open your terminal
-2.  cd Desktop (of wherever you prefer)
-    (if you want to self-title your own folder complete step 3-6, otherwise skip to step 5)
+2.  cd Desktop (if you want to self-title your own folder complete step 3-6, otherwise skip to step 5)
 3.  mkdir freshGardener
 4.  cd freshGardener
 5.  git clone https://github.com/michaelegregious/freshGardener.git
